@@ -11,10 +11,7 @@ async function getINFO(){
 const response = await fetch(api_url);
 const data = await response.json();
 console.log(data);
-btc.innerHTML =data[0].current_price;
-btc_cap.innerHTML = data[0].market_cap;
-eth.innerHTML = data[1].current_price;
-eth_cap.innerHTML = data[1].market_cap;
+
 if(cryptoc>0)
 {
 cryptoc=0;
@@ -28,7 +25,7 @@ crypto_cap.innerHTML= cryptoc;
 
 for (let i = 0; i < data.length; i++)
 {
-addnew(data[i].name,data[i].current_price,data[i].image)
+addnew(data[i].name,data[i].current_price,data[i].image,data[i].market_cap_rank)
 
 }
 
@@ -36,12 +33,13 @@ addnew(data[i].name,data[i].current_price,data[i].image)
 getINFO();
 //setInterval(getINFO, 20000);
 const DIVcoins = document.getElementById("coins-container")
-function addnew(a,b,d)
+function addnew(name,price,image,id)
 {
 const newDIV = document.createElement("div");
 newDIV.classList.add('coins');
+newDIV.id = `coin-${id}`;
 DIVcoins.appendChild(newDIV);
-newDIV.innerHTML= "<img src='"+ d +"' alt='test' width='50px' height='50px'>" + "</br>" + a +"</br> $"+ b;  
+newDIV.innerHTML = `<img src='${image}' alt='${name}' width='50px' height='50px'><p>#${id}<p>${name}<br>$${price}`;
 }
 
 
