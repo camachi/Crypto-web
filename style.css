@@ -62,10 +62,9 @@ body{
     
 }
 
-@media(max-width:1050px){
+@media(max-width:900px){
     .logo-div{
-        height: 500px;
-        width: 10%;
+        display: none;
     }
 }
 
