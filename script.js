@@ -108,7 +108,7 @@ const newDIV = document.createElement("div");
 newDIV.classList.add('coins');
 newDIV.id = `coin-${data[i].id}`;
 DIVcoins.appendChild(newDIV);
-newDIV.innerHTML = `<img src='${data[i].image}' alt='${data[i].name}' width='50px' height='50px'><p>#${i + 1}<p>${data[i].name}<br>$${data[i].price}`;
+newDIV.innerHTML = `<img src='${data[i].image}' alt='${data[i].name}' width='50px' height='50px'><p>#${i + 1}<p>${data[i].name}<br>$${data[i].current_price.toLocaleString('en-US')}`;
 }
 //Asignando el MARKET CAP en el nav
 crypto_cap.innerHTML= cryptoSumaMarketCap.toLocaleString('en-US');
